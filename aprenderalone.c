@@ -180,7 +180,7 @@ void opcao1(double total)
     {
         double desconto = total * 0.1;
         double valorTotal = total - desconto;
-        printf("Valor da compra: $ %.2f\n", total);
+        printf("Valor da compra: $ %.2f\n", valorTotal);
     }
     else
     {
