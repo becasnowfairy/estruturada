@@ -118,11 +118,39 @@ void string()
     printf("Quantidade de caracteres maiúsculas: %d\n", contMai);
 }
 
+/*fazer uma função que cacula a enésima potência de uma variável real x:
+f(x, n) = x */
+double potencia(double base, int exponent) {
+    double result = 1;
+    for (int i = 0; i < exponent; i++) {
+        result *= base;
+    }
+    return result;
+}
+
+int função() {
+    double base;
+    int exponent;
+
+    // Ask user for input
+    printf("Indique o seu primeiro numero (base): ");
+    scanf("%lf", &base);
+    printf("Indique o seu expoente: ");
+    scanf("%d", &exponent);
+
+    // Calculate and print the result
+    double result = potencia(base, exponent);
+    printf("Resultado: %.2f\n", result);
+
+    return 0;
+}
+
 int main()
 {
     // metros();
     // tabuada();
     // decimal();
     // lista();
-    string();
+    //string();
+    função();
 }
