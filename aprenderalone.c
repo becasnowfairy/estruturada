@@ -155,9 +155,9 @@ OBS: fazer uma função que imprime as opções solicita a opção desejada e re
 a opção escolhida. No programa principal, testar a opção escolhida e ativar a
 função correspondente (uma função para cada opção).*/
 
-
 // Function to print options
-void imprimeOpcoes() {
+void imprimeOpcoes()
+{
     printf("Opções:\n");
     printf("1. Opção 1: pagamento á vista com 10 porcento de desconto\n");
     printf("2. Opção 2; pagamento em duas vezes\n");
@@ -165,7 +165,8 @@ void imprimeOpcoes() {
 }
 
 // Function to get user's option
-int opcaoEscolhida() {
+int opcaoEscolhida()
+{
     int opcao;
     printf("Escolha uma opção: ");
     scanf("%d", &opcao);
@@ -173,35 +174,47 @@ int opcaoEscolhida() {
 }
 
 // Function for option 1
-void opcao1(double total) {
-    if (total > 100.0) {
+void opcao1(double total)
+{
+    if (total > 100.0)
+    {
+        double desconto = total * 0.1;
+        double valorTotal = total - desconto;
         printf("Valor da compra: $ %.2f\n", total);
-    } else {
+    }
+    else
+    {
         printf("Valor da compra deve ser maior que $ 100,00!\n");
     }
 }
 
 // Function for option 2
-void opcao2(double total) {
+void opcao2(double total)
+{
+    double valorTotal = total;
+    printf("Valor total das prestações: $ %.2f\n", valorTotal);
+}
+
+// Function for option 3
+void opcao3(double total)
+{
     int vezes;
     printf("Número de vezes: ");
     scanf("%d", &vezes);
-
-    if (vezes >= 3 && vezes <= 10) {
+    if (vezes >= 3 && vezes <= 10)
+    {
         double juros = total * 0.03;
         double valorTotal = total + (juros * vezes);
         printf("Valor total com juros: $ %.2f\n", valorTotal);
-    } else {
+    }
+    else
+    {
         printf("Número de vezes inválido!\n");
     }
 }
 
-// Function for option 3
-void opcao3(double total) {
-    // TO DO: implement option 3
-}
-
-int mainop() {
+int mainop()
+{
     double total;
     printf("Valor da etiqueta: $ ");
     scanf("%lf", &total);
@@ -209,18 +222,19 @@ int mainop() {
     imprimeOpcoes();
     int opcao = opcaoEscolhida();
 
-    switch (opcao) {
-        case 1:
-            opcao1(total);
-            break;
-        case 2:
-            opcao2(total);
-            break;
-        case 3:
-            opcao3(total);
-            break;
-        default:
-            printf("Opção inválida!\n");
+    switch (opcao)
+    {
+    case 1:
+        opcao1(total);
+        break;
+    case 2:
+        opcao2(total);
+        break;
+    case 3:
+        opcao3(total);
+        break;
+    default:
+        printf("Opção inválida!\n");
     }
 
     return 0;
