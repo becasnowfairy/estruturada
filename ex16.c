@@ -2,37 +2,26 @@
 como argumento.*/
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
+#include <limits.h>
 
-#define INT_MAX __INT_MAX__
-
-int shortest_word(const char *str) {
-    int shortest_length = INT_MAX; // Initialize with the largest possible value
-    int current_word = 0;
-    char input[]
-    fgets()
-    // Iterate through the string
-    for (int i = 0; str[i] != '\0'; i++) {
-        // Check if it's an alphanumeric character
-        if (isalnum(str[i])) {
-            current_word++;
-        } else if (current_word > 0) {
-            // Update the shortest length if necessary
-            shortest_length = (current_word < shortest_length) ? current_word : shortest_length;
-            current_word = 0; // Reset the current word count
+int menor_palavra(char *str) {
+    int menor = INT_MAX;
+    char *token = strtok(str, " ");
+    while (token != NULL) {
+        int tamanho = strlen(token);
+        if (tamanho < menor) {
+            menor = tamanho;
         }
+        token = strtok(NULL, " ");
     }
-
-    // Check the last word
-    if (current_word > 0) {
-        shortest_length = (current_word < shortest_length) ? current_word : shortest_length;
-    }
-
-    return (shortest_length == INT_MAX) ? 0 : shortest_length; // Return 0 if no words are found
+    return menor;
 }
 
 int main() {
-    const char *str = "This is a test string";
-    printf("Shortest word has length: %d\n", shortest_word(str));
+    char str[100];
+    printf("Digite uma string: ");
+    fgets(str, 100, stdin); 
+    str[strlen(str) - 1] = '\0'; 
+    printf("Tamanho da menor palavra: %d\n", menor_palavra(str));
     return 0;
 }
