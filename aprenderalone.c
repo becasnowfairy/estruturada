@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <time.h>
-#include<stdlib.h>
+#include <stdlib.h>
 
 /* pergunta um valor em metros e imprime o correspondente em decímetros, centímetros e milímetros.*/
 
@@ -269,6 +269,55 @@ int euro()
     return 0;
 }
 
+// Crie um programa capaz de criar a transposta de uma matriz. A matriz deve ser lida de teclado.
+void printMatrix(int matrix[][10], int rows, int cols)
+{
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void transposeMatrix(int matrix[][10], int transposed[][10], int rows, int cols)
+{
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            transposed[j][i] = matrix[i][j];
+        }
+    }
+}
+
+void matrix()
+{
+    int matrix[10][10], transposed[10][10];
+    int rows, cols;
+
+    printf("Enter the number of rows and columns of the matrix: ");
+    scanf("%d %d", &rows, &cols);
+
+    printf("Enter the elements of the matrix:\n");
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    printf("Matrix:\n");
+    printMatrix(matrix, rows, cols);
+
+    transposeMatrix(matrix, transposed, rows, cols);
+
+    printf("Transposed Matrix:\n");
+    printMatrix(transposed, cols, rows);
+}
 
 int main()
 {
@@ -278,7 +327,8 @@ int main()
     // lista();
     // string();
     // função();
-    //imprimeOpcoes();
-    //mainop();
-    euro();
+    // imprimeOpcoes();
+    // mainop();
+    // euro();
+    matrix();
 }
