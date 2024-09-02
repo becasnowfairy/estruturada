@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
+#include <time.h>
+#include<stdlib.h>
 
 /* pergunta um valor em metros e imprime o correspondente em decímetros, centímetros e milímetros.*/
 
@@ -240,6 +242,34 @@ int mainop()
     return 0;
 }
 
+/*euromilhões*/
+
+int euro()
+{
+    srand(time(NULL));
+    int chave[5], estrelas[2];
+    for (int i = 0; i < 5; i++)
+    {
+        chave[i] = rand() % 50 + 1;
+        for (int i2 = 0; i2 < i; i2++)
+            if (chave[i] == chave[i2])
+            {
+                i--;
+                break;
+            }
+    }
+    estrelas[0] = rand() % 12 + 1;
+    do
+        estrelas[1] = rand() % 12 + 1;
+    while (estrelas[0] == estrelas[1]);
+    printf("Chave:");
+    for (int i = 0; i < 5; i++)
+        printf(" %d", chave[i]);
+    printf("\nEstrelas: %d %d\n", estrelas[0], estrelas[1]);
+    return 0;
+}
+
+
 int main()
 {
     // metros();
@@ -248,6 +278,7 @@ int main()
     // lista();
     // string();
     // função();
-    imprimeOpcoes();
-    mainop();
+    //imprimeOpcoes();
+    //mainop();
+    euro();
 }
