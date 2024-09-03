@@ -1,5 +1,24 @@
 #include <stdio.h>
 
+/*Elabore 3 algoritmos em C que utilizem ciclos encadeados para imprimir os seguintes resultados:
+a)
+*
+* *
+* * *
+* * * *
+* * * * *
+b)
+* * * * *
+* *
+* *
+* *
+*
+c)
+*
+* * *
+* * * * *
+* * * * * * * */
+
 int estrelas()
 {
     int i, cont;

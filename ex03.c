@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+/*Escreva um programa que solicite um determinado número de segundos, e em seguida
+indique quantas horas, minutos e segundos esse valor representa.*/
+
 int main()
 {
     int segundos_total;

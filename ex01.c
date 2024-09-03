@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+/*Escreva um programa que solicite dois números inteiros e imprima esses números*/
+
 int main()
 {
     int num, num2;

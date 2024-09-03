@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+/*Escreva um programa que solicite dois números e faça a troca dos números entre variáveis.*/
+
 int main()
 {
     int a, b, temporary;

@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+/*Calcule o preço de venda de um artigo, sabendo o preço base e a percentagem do IVA*/
+
 int main()
 {
     float precoBase, percentagemIVA, precoVenda;

@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+/*Escreva um programa que solicite ao utilizador dois números inteiros e apresente o resultado
+das seguintes operações aritméticas (adição, subtração, multiplicação e divisão)*/
+
 int add(int x, int y)
 {
     return x + y;

@@ -1,7 +1,8 @@
-/*Crie um algoritmo em C que receba uma string e imprima a contagem das palavras existentes na string*/
 #include <stdio.h>
 #include <string.h>
 #define MAX 100
+
+/*Crie um algoritmo em C que receba uma string e imprima a contagem das palavras existentes na string*/
 
 int main()
 {

@@ -1,8 +1,9 @@
-/*Crie um algoritmo em C que receba uma string e faça a substituição dos espaços em branco por underscore
-‘_’.*/
 #include <stdio.h>
 #include <string.h>
 #define MAX 100
+
+/*Crie um algoritmo em C que receba uma string e faça a substituição dos espaços em branco por underscore
+‘_’.*/
 
 int main()
 {

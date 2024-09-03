@@ -1,5 +1,9 @@
 #include <stdio.h>
 
+/*Elabore um algoritmo em C que preencha uma matriz de inteiros com 5 linhas e 5 colunas. Faça as trocas
+necessárias para que as linhas se transformem em colunas (1ª linha → 1ª coluna, 2ª linha → 2ª coluna, … , 5ª
+linha → 5ª coluna) utilizando obrigatoriamente ciclos.*/
+
 #define SIZE 5
 
 int main()

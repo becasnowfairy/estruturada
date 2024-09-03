@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+/*Escreva um programa que solicite um número inteiro e escreva o seu sucessor e o antecessor.*/
+
 int main()
 {
     int numero, antecessor, sucessor;

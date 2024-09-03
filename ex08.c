@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+/*Construa um programa em C que preencha um array de 10 números inteiros. O programa deve movimentar
+para a esquerda do array os números ímpares e para a direita os números pares.*/
+
 int main()
 {
     int array[10];
