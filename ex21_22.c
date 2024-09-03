@@ -70,13 +70,13 @@ void listar(aeroporto aeroportos[], int tamanho) {
 // Função para alterar as informações de um aeroporto
 void alterar(aeroporto aeroportos[], int tamanho) {
     char nome[MAX_NOME];
-    printf("Digite o nome do aeroporto a alterar: ");
+    printf("Insira o nome do aeroporto a alterar: ");
     fgets(nome, MAX_NOME, stdin);
     nome[strcspn(nome, "\n")] = 0; 
 
     for (int i = 0; i < tamanho; i++) {
         if (strcmp(aeroportos[i].nome, nome) == 0) {
-            printf("Digite as novas informações do aeroporto:\n");
+            printf("Insera as novas informações do aeroporto:\n");
             printf("Municipio: ");
             fgets(aeroportos[i].municipio, MAX_MUNICIPIO, stdin);
             aeroportos[i].municipio[strcspn(aeroportos[i].municipio, "\n")] = 0; 
@@ -101,7 +101,7 @@ void alterar(aeroporto aeroportos[], int tamanho) {
 // Função para procurar um aeroporto
 void procurar(aeroporto aeroportos[], int tamanho) {
     char nome[MAX_NOME];
-    printf("Digite o nome do aeroporto a procurar: ");
+    printf("Insira o nome do aeroporto a procurar: ");
     fgets(nome, MAX_NOME, stdin);
     nome[strcspn(nome, "\n")] = 0; 
 
