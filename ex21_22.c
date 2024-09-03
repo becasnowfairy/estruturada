@@ -76,7 +76,7 @@ void alterar(aeroporto aeroportos[], int tamanho) {
 
     for (int i = 0; i < tamanho; i++) {
         if (strcmp(aeroportos[i].nome, nome) == 0) {
-            printf("Insera as novas informações do aeroporto:\n");
+            printf("Insira as novas informações do aeroporto:\n");
             printf("Municipio: ");
             fgets(aeroportos[i].municipio, MAX_MUNICIPIO, stdin);
             aeroportos[i].municipio[strcspn(aeroportos[i].municipio, "\n")] = 0; 
