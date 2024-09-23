@@ -4,9 +4,11 @@
 #include "praia.h"
 
 // Função para criar um novo ficheiro de praias
-void criarFicheiroPraias() {
+void criarFicheiroPraias()
+{
     FILE *fp = fopen("praia.dat", "wb");
-    if (fp == NULL) {
+    if (fp == NULL)
+    {
         printf("Erro ao criar ficheiro de praias\n");
         exit(1);
     }
@@ -14,9 +16,11 @@ void criarFicheiroPraias() {
 }
 
 // Função para criar um novo ficheiro de localidades
-void criarFicheiroLocalidades() {
+void criarFicheiroLocalidades()
+{
     FILE *fp = fopen("localidade.dat", "wb");
-    if (fp == NULL) {
+    if (fp == NULL)
+    {
         printf("Erro ao criar ficheiro de localidades\n");
         exit(1);
     }
@@ -24,10 +28,12 @@ void criarFicheiroLocalidades() {
 }
 
 // Função para inserir uma praia no ficheiro
-void inserirPraia() {
+void inserirPraia()
+{
     Praia praia;
     FILE *fp = fopen("praia.dat", "ab");
-    if (fp == NULL) {
+    if (fp == NULL)
+    {
         printf("Erro ao abrir ficheiro de praias\n");
         exit(1);
     }
@@ -46,7 +52,8 @@ void inserirPraia() {
 
     // gerar ID automático
     praia.id = 1;
-    if (fseek(fp, 0, SEEK_END) == 0) {
+    if (fseek(fp, 0, SEEK_END) == 0)
+    {
         fseek(fp, -sizeof(Praia), SEEK_END);
         fread(&praia.id, sizeof(int), 1, fp);
         praia.id++;
@@ -57,10 +64,12 @@ void inserirPraia() {
 }
 
 // Função para inserir uma localidade no ficheiro
-void inserirLocalidade() {
+void inserirLocalidade()
+{
     Localidade localidade;
     FILE *fp = fopen("localidade.dat", "ab");
-    if (fp == NULL) {
+    if (fp == NULL)
+    {
         printf("Erro ao abrir ficheiro de localidades\n");
         exit(1);
     }
@@ -71,7 +80,8 @@ void inserirLocalidade() {
 
     // gerar ID automático
     localidade.id = 1;
-    if (fseek(fp, 0, SEEK_END) == 0) {
+    if (fseek(fp, 0, SEEK_END) == 0)
+    {
         fseek(fp, -sizeof(Localidade), SEEK_END);
         fread(&localidade.id, sizeof(int), 1, fp);
         localidade.id++;
@@ -82,16 +92,19 @@ void inserirLocalidade() {
 }
 
 // Função para listar as praias
-void listarPraias() {
+void listarPraias()
+{
     Praia praia;
     FILE *fp = fopen("praia.dat", "rb");
-    if (fp == NULL) {
+    if (fp == NULL)
+    {
         printf("Erro ao abrir ficheiro de praias\n");
         exit(1);
     }
 
     printf("Listagem de praias:\n");
-    while (fread(&praia, sizeof(Praia), 1, fp) == 1) {
+    while (fread(&praia, sizeof(Praia), 1, fp) == 1)
+    {
         printf("ID: %d\n", praia.id);
         printf("Nome: %s\n", praia.nome);
         printf("Tipo: %s\n", praia.tipo);
@@ -102,16 +115,19 @@ void listarPraias() {
 }
 
 // Função para listar as localidades
-void listarLocalidades() {
+void listarLocalidades()
+{
     Localidade localidade;
     FILE *fp = fopen("localidade.dat", "rb");
-    if (fp == NULL) {
+    if (fp == NULL)
+    {
         printf("Erro ao abrir ficheiro de localidades\n");
         exit(1);
     }
 
     printf("Listagem de localidades:\n");
-    while (fread(&localidade, sizeof(Localidade), 1, fp) == 1) {
+    while (fread(&localidade, sizeof(Localidade), 1, fp) == 1)
+    {
         printf("ID: %d\n", localidade.id);
         printf("Nome: %s\n\n", localidade.nome);
     }
@@ -120,11 +136,13 @@ void listarLocalidades() {
 }
 
 // Função para listar as praias por localidade
-void listarPraiasPorLocalidade() {
+void listarPraiasPorLocalidade()
+{
     int idLocalidade;
     Praia praia;
     FILE *fp = fopen("praia.dat", "rb");
-    if (fp == NULL) {
+    if (fp == NULL)
+    {
         printf("Erro ao abrir ficheiro de praias\n");
         exit(1);
     }
@@ -134,8 +152,10 @@ void listarPraiasPorLocalidade() {
     getchar(); // remover o caractere de nova linha
 
     printf("Listagem de praias da localidade %d:\n", idLocalidade);
-    while (fread(&praia, sizeof(Praia), 1, fp) == 1) {
-        if (praia.idLocalidade == idLocalidade) {
+    while (fread(&praia, sizeof(Praia), 1, fp) == 1)
+    {
+        if (praia.idLocalidade == idLocalidade)
+        {
             printf("ID: %d\n", praia.id);
             printf("Nome: %s\n", praia.nome);
             printf("Tipo: %s\n\n", praia.tipo);
@@ -146,11 +166,13 @@ void listarPraiasPorLocalidade() {
 }
 
 // Função para procurar uma praia pelo nome
-void procurarPraia() {
+void procurarPraia()
+{
     char nome[50];
     Praia praia;
     FILE *fp = fopen("praia.dat", "rb");
-    if (fp == NULL) {
+    if (fp == NULL)
+    {
         printf("Erro ao abrir ficheiro de praias\n");
         exit(1);
     }
@@ -160,8 +182,10 @@ void procurarPraia() {
     nome[strlen(nome) - 1] = '\0'; // remover o caractere de nova linha
 
     printf("Resultados da busca:\n");
-    while (fread(&praia, sizeof(Praia), 1, fp) == 1) {
-        if (strcmp(praia.nome, nome) == 0) {
+    while (fread(&praia, sizeof(Praia), 1, fp) == 1)
+    {
+        if (strcmp(praia.nome, nome) == 0)
+        {
             printf("ID: %d\n", praia.id);
             printf("Nome: %s\n", praia.nome);
             printf("Tipo: %s\n", praia.tipo);
@@ -173,11 +197,13 @@ void procurarPraia() {
 }
 
 // Função para alterar uma localidade
-void alterarLocalidade() {
+void alterarLocalidade()
+{
     int idLocalidade;
     Localidade localidade;
     FILE *fp = fopen("localidade.dat", "rb+");
-    if (fp == NULL) {
+    if (fp == NULL)
+    {
         printf("Erro ao abrir ficheiro de localidades\n");
         exit(1);
     }
@@ -186,8 +212,10 @@ void alterarLocalidade() {
     scanf("%d", &idLocalidade);
     getchar(); // remover o caractere de nova linha
 
-    while (fread(&localidade, sizeof(Localidade), 1, fp) == 1) {
-        if (localidade.id == idLocalidade) {
+    while (fread(&localidade, sizeof(Localidade), 1, fp) == 1)
+    {
+        if (localidade.id == idLocalidade)
+        {
             printf("Digite o novo nome da localidade: ");
             fgets(localidade.nome, sizeof(localidade.nome), stdin);
             localidade.nome[strlen(localidade.nome) - 1] = '\0'; // remover o caractere de nova linha
@@ -204,11 +232,13 @@ void alterarLocalidade() {
 }
 
 // Função para alterar uma praia
-void alterarPraia() {
+void alterarPraia()
+{
     int idPraia;
     Praia praia;
     FILE *fp = fopen("praia.dat", "rb+");
-    if (fp == NULL) {
+    if (fp == NULL)
+    {
         printf("Erro ao abrir ficheiro de praias\n");
         exit(1);
     }
@@ -217,8 +247,10 @@ void alterarPraia() {
     scanf("%d", &idPraia);
     getchar(); // remover o caractere de nova linha
 
-    while (fread(&praia, sizeof(Praia), 1, fp) == 1) {
-        if (praia.id == idPraia) {
+    while (fread(&praia, sizeof(Praia), 1, fp) == 1)
+    {
+        if (praia.id == idPraia)
+        {
             printf("Digite o novo nome da praia: ");
             fgets(praia.nome, sizeof(praia.nome), stdin);
             praia.nome[strlen(praia.nome) - 1] = '\0'; // remover o caractere de nova linha
@@ -243,26 +275,32 @@ void alterarPraia() {
 }
 
 // Função para exportar as praias para um ficheiro CSV
-void exportarPraiasParaCSV() {
+void exportarPraiasParaCSV()
+{
     Praia praia;
     FILE *fp = fopen("praia.dat", "rb");
     FILE *fpCSV = fopen("praia.csv", "w");
-    if (fp == NULL || fpCSV == NULL) {
+    if (fp == NULL || fpCSV == NULL)
+    {
         printf("Erro ao abrir ficheiro de praias ou ficheiro CSV\n");
         exit(1);
     }
 
     fprintf(fpCSV, "Localidade;Nome Praia;Tipo Praia\n");
-    while (fread(&praia, sizeof(Praia), 1, fp) == 1) {
+    while (fread(&praia, sizeof(Praia), 1, fp) == 1)
+    {
         Localidade localidade;
         FILE *fpLocalidade = fopen("localidade.dat", "rb");
-        if (fpLocalidade == NULL) {
+        if (fpLocalidade == NULL)
+        {
             printf("Erro ao abrir ficheiro de localidades\n");
             exit(1);
         }
 
-        while (fread(&localidade, sizeof(Localidade), 1, fpLocalidade) == 1) {
-            if (localidade.id == praia.idLocalidade) {
+        while (fread(&localidade, sizeof(Localidade), 1, fpLocalidade) == 1)
+        {
+            if (localidade.id == praia.idLocalidade)
+            {
                 fprintf(fpCSV, "%s;%s;%s\n", localidade.nome, praia.nome, praia.tipo);
                 break;
             }
@@ -275,12 +313,14 @@ void exportarPraiasParaCSV() {
     fclose(fpCSV);
 }
 
-int main() {
+int main()
+{
     criarFicheiroPraias();
     criarFicheiroLocalidades();
 
     int opcao;
-    do {
+    do
+    {
         printf("Menu:\n");
         printf("1. Inserir Praia\n");
         printf("2. Inserir Localidade\n");
@@ -296,38 +336,40 @@ int main() {
         scanf("%d", &opcao);
         getchar(); // remover o caractere de nova linha
 
-        switch (opcao) {
-            case 1:
-                inserirPraia();
-                break;
-            case 2:
-                inserirLocalidade();
-                break;
-            case 3:
-                listarPraias();
-                break;
-            case 4:
-                listarLocalidades();
-                break;
-            case 5:
-                listarPraiasPorLocalidade();
-                break;
-            case 6:
-                procurarPraia();
-                break;
-            case 7:
-                alterarLocalidade();
-                break;
-            case 8:
-                alterarPraia();
-                break;
-            case 9:
-                exportarPraiasParaCSV();
-                break;
-            default:
-                if (opcao != 0) {
-                    printf("Opção inválida\n");
-                }
+        switch (opcao)
+        {
+        case 1:
+            inserirPraia();
+            break;
+        case 2:
+            inserirLocalidade();
+            break;
+        case 3:
+            listarPraias();
+            break;
+        case 4:
+            listarLocalidades();
+            break;
+        case 5:
+            listarPraiasPorLocalidade();
+            break;
+        case 6:
+            procurarPraia();
+            break;
+        case 7:
+            alterarLocalidade();
+            break;
+        case 8:
+            alterarPraia();
+            break;
+        case 9:
+            exportarPraiasParaCSV();
+            break;
+        default:
+            if (opcao != 0)
+            {
+                printf("Opção inválida\n");
+            }
         }
     } while (opcao != 0);
 
